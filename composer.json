@@ -1,0 +1,13 @@
+{
+    "require": {
+        "phalcon/devtools": "dev-master",
+        "zazza/phalcon-debug-widget": "dev-master",
+        "mpdf/mpdf": "~6.0",
+        "99designs/phumbor": "~1.1",
+        "nfephp-org/nfephp": "^4.0",
+        "mandrill/mandrill": "1.0.*"
+    },
+    "require-dev": {
+        "snowair/phalcon-debugbar": "^1.1"
+    }
+}

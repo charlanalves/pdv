@@ -1,0 +1,365 @@
+<?php
+
+namespace App\Models;
+
+class Simulated extends \Phalcon\Mvc\Model
+{
+
+    /**
+     *
+     * @var integer
+     */
+    protected $idSimulated;
+
+    /**
+     *
+     * @var string
+     */
+    protected $question;
+
+    /**
+     *
+     * @var string
+     */
+    protected $answer;
+
+    /**
+     *
+     * @var integer
+     */
+    protected $rightAnswer;
+
+    /**
+     *
+     * @var string
+     */
+    protected $institution;
+
+    /**
+     *
+     * @var integer
+     */
+    protected $difficulty;
+
+    /**
+     *
+     * @var integer
+     */
+    protected $enabled;
+
+    /**
+     *
+     * @var integer
+     */
+    protected $simulated_idSimulated;
+
+    /**
+     *
+     * @var integer
+     */
+    protected $areaOperation_idAreaOperation;
+
+    /**
+     * Method to set the value of field idSimulated
+     *
+     * @param integer $idSimulated
+     * @return $this
+     */
+    public function setIdsimulated($idSimulated)
+    {
+        $this->idSimulated = $idSimulated;
+
+        return $this;
+    }
+
+    /**
+     * Method to set the value of field question
+     *
+     * @param string $question
+     * @return $this
+     */
+    public function setQuestion($question)
+    {
+        $this->question = $question;
+
+        return $this;
+    }
+
+    /**
+     * Method to set the value of field answer
+     *
+     * @param string $answer
+     * @return $this
+     */
+    public function setAnswer($answer)
+    {
+        $this->answer = $answer;
+
+        return $this;
+    }
+
+    /**
+     * Method to set the value of field rightAnswer
+     *
+     * @param integer $rightAnswer
+     * @return $this
+     */
+    public function setRightanswer($rightAnswer)
+    {
+        $this->rightAnswer = $rightAnswer;
+
+        return $this;
+    }
+
+    /**
+     * Method to set the value of field institution
+     *
+     * @param string $institution
+     * @return $this
+     */
+    public function setInstitution($institution)
+    {
+        $this->institution = $institution;
+
+        return $this;
+    }
+
+    /**
+     * Method to set the value of field difficulty
+     *
+     * @param integer $difficulty
+     * @return $this
+     */
+    public function setDifficulty($difficulty)
+    {
+        $this->difficulty = $difficulty;
+
+        return $this;
+    }
+
+    /**
+     * Method to set the value of field enabled
+     *
+     * @param integer $enabled
+     * @return $this
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Method to set the value of field simulated_idSimulated
+     *
+     * @param integer $simulated_idSimulated
+     * @return $this
+     */
+    public function setSimulatedIdsimulated($simulated_idSimulated)
+    {
+        $this->simulated_idSimulated = $simulated_idSimulated;
+
+        return $this;
+    }
+
+    /**
+     * Method to set the value of field areaOperation_idAreaOperation
+     *
+     * @param integer $areaOperation_idAreaOperation
+     * @return $this
+     */
+    public function setAreaoperationIdareaoperation($areaOperation_idAreaOperation)
+    {
+        $this->areaOperation_idAreaOperation = $areaOperation_idAreaOperation;
+
+        return $this;
+    }
+
+    /**
+     * Returns the value of field idSimulated
+     *
+     * @return integer
+     */
+    public function getIdsimulated()
+    {
+        return $this->idSimulated;
+    }
+
+    /**
+     * Returns the value of field question
+     *
+     * @return string
+     */
+    public function getQuestion()
+    {
+        return $this->question;
+    }
+
+    /**
+     * Returns the value of field answer
+     *
+     * @return string
+     */
+    public function getAnswer()
+    {
+        return $this->answer;
+    }
+
+    /**
+     * Returns the value of field rightAnswer
+     *
+     * @return integer
+     */
+    public function getRightanswer()
+    {
+        return $this->rightAnswer;
+    }
+
+    /**
+     * Returns the value of field institution
+     *
+     * @return string
+     */
+    public function getInstitution()
+    {
+        return $this->institution;
+    }
+
+    /**
+     * Returns the value of field difficulty
+     *
+     * @return integer
+     */
+    public function getDifficulty()
+    {
+        return $this->difficulty;
+    }
+
+    /**
+     * Returns the value of field enabled
+     *
+     * @return integer
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * Returns the value of field simulated_idSimulated
+     *
+     * @return integer
+     */
+    public function getSimulatedIdsimulated()
+    {
+        return $this->simulated_idSimulated;
+    }
+
+    /**
+     * Returns the value of field areaOperation_idAreaOperation
+     *
+     * @return integer
+     */
+    public function getAreaoperationIdareaoperation()
+    {
+        return $this->areaOperation_idAreaOperation;
+    }
+
+    /**
+     * Initialize method for model.
+     */
+    public function initialize()
+    {
+        $this->hasMany('idSimulated', 'App\Models\Simulated', 'simulated_idSimulated', array('alias' => 'Simulated'));
+        $this->hasMany('idSimulated', 'App\Models\UserHasSimulated', 'simulated_idSimulated', array('alias' => 'User_has_simulated'));
+        $this->belongsTo('simulated_idSimulated', 'App\Models\Simulated', 'idSimulated', array('alias' => 'Simulated'));
+        $this->belongsTo('areaOperation_idAreaOperation', 'App\Models\AreaOperation', 'idAreaOperation', array('alias' => 'AreaOperation'));
+    }
+
+    public function getSource()
+    {
+        return 'simulated';
+    }
+
+    /**
+     * @return Simulated[]
+     */
+    public static function find($parameters = array())
+    {
+        return parent::find($parameters);
+    }
+
+    /**
+     * @return Simulated
+     */
+    public static function findFirst($parameters = array())
+    {
+        return parent::findFirst($parameters);
+    }
+
+    /**
+     * Independent Column Mapping.
+     */
+    public function columnMap()
+    {
+        return array(
+            'idSimulated' => 'idSimulated',
+            'question' => 'question',
+            'answer' => 'answer',
+            'rightAnswer' => 'rightAnswer',
+            'institution' => 'institution',
+            'difficulty' => 'difficulty',
+            'enabled' => 'enabled',
+            'simulated_idSimulated' => 'simulated_idSimulated',
+            'areaOperation_idAreaOperation' => 'areaOperation_idAreaOperation'
+        );
+    }
+
+    public static function search($params = null)
+    {
+        $query = self::query();
+
+        // check if we need to join a table
+        preg_match_all('/[\S]*\./', $params['conditions'] .' '. $params['order'], $aModelsToJoin);
+        if (count($aModelsToJoin) > 0) {
+            // remove duplicates
+            $aModelsToJoin = array_filter(array_unique($aModelsToJoin[0]));
+            foreach ($aModelsToJoin as $model) {
+                if (rtrim($model, '.') != 'App\Models\Simulated') {
+                    $query->Join(rtrim($model, '.'));
+                }
+            }
+        }
+
+        if (isset($params['conditions'])) {
+            $query->where($params['conditions'], $params['bind']);
+        }
+
+        if (isset($params['order'])) {
+            $query->order($params['order']);
+        }
+
+        if (isset($params['limit'])) {
+            if (!isset($params['offset'])) {
+                $params['offset'] = 0;
+            }
+
+            $query->limit($params['limit'], $params['offset']);
+        }
+        if (isset($params['columns'])) {
+            $query->columns($params['columns']);
+        }
+
+        if (isset($params['bulder']) && $params['bulder'] == 1) {
+            return $query;
+        } else {
+            return $query->execute();
+        }
+    }
+
+    public function customInitialize()
+    {
+
+    }
+}
